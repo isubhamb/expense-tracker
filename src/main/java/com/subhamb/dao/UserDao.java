@@ -1,5 +1,6 @@
 package com.subhamb.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -39,4 +40,22 @@ public class UserDao {
 		
 		return f;
 	}
+	
+	public User login(String email, String password) {
+		
+		User u = null;
+		
+		session = factory.openSession();
+		
+		Query q = session.createQuery("from User where emailId=:em and password=:ps");
+		
+		q.setParameter("em", email);
+		q.setParameter("ps", password);
+		
+		u = (User) q.uniqueResult();
+		
+		return u;
+		
+	}
+	
 }
