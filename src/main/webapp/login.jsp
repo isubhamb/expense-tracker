@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register Page</title>
+<title>Login Page</title>
 <%@include file="component/all_css.jsp"%>
 </head>
 <body class="bg-light">
