@@ -14,7 +14,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active " href="#"><i class="fa-solid fa-right-to-bracket"></i> View Expense</a>  
+          <a class="nav-link active" href="view_expense.jsp"><i class="fa-solid fa-right-to-bracket"></i> View Expense</a>  
         </li>     
        </c:if>
        

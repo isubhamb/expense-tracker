@@ -1,10 +1,15 @@
 package com.subhamb.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.subhamb.entity.Expense;
+import com.subhamb.entity.User;
 
 public class ExpenseDao {
 	private SessionFactory factory=null;
@@ -33,5 +38,74 @@ public class ExpenseDao {
 		    
 		}
 		return f;
+	}
+	
+	
+	public List<Expense> getAllExpenseByUser(User user){
+		
+		List<Expense> list = new ArrayList<Expense>();
+		
+		try {
+			session = factory.openSession();
+			Query q=session.createQuery("from Expense where user=:us");
+			q.setParameter("us", user);
+			list = q.list();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public Expense getExpenseById(int id) {
+	
+		Expense ex = null;
+		
+		try {
+			session = factory.openSession();
+			Query q=session.createQuery("from Expense where id=:id");
+			q.setParameter("id", id);
+			ex = (Expense) q.uniqueResult();
+			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return ex;
+	}
+	
+	public boolean updateExpense(Expense ex) {
+		boolean f=false;
+		try {
+			session = factory.openSession();
+			tx = session.beginTransaction();
+			session.saveOrUpdate(ex);
+			tx.commit();
+			f=true;
+			
+		} catch (Exception e) {
+		    if(tx!=null) {
+		    	f=false;
+		    	e.printStackTrace();
+		    }
+		    
+		}
+		return f;
+	}
+	
+	public boolean deleteExpense(int id) {
+		
+		boolean f = false;
+		
+		try {
+			session=factory.openSession();
+			tx=session.beginTransaction();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 }

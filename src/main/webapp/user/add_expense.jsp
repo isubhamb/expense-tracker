@@ -10,6 +10,9 @@
 <%@include file="../component/all_css.jsp"%>
 </head> 
 <body class="bg-light">
+<c:if test="${empty loginUser}">
+   <c:redirect url="../login.jsp"></c:redirect>
+</c:if>
 <%@include file="../component/navbar.jsp"%>
 <div class="container mt-5">
 <div class="row">
