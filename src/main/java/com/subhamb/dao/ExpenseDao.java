@@ -102,10 +102,14 @@ public class ExpenseDao {
 		try {
 			session=factory.openSession();
 			tx=session.beginTransaction();
-			
+			Expense ex = session.get(Expense.class, id);
+			session.delete(ex);
+			tx.commit();
+			f=true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			f=false;
+			e.printStackTrace();
 		}
-		
+		return f;
 	}
 }

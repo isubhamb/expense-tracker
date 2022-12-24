@@ -62,7 +62,7 @@
       %></td>
       <td>
       <a href="edit_expense.jsp?id=<%=ex.getId() %>" class="btn btn-sm btn-primary me-1">Edit</a>
-      <a href="#" class="btn btn-sm btn-danger me-1">Delete</a>
+      <a href="../deleteExpense?id=<%=ex.getId() %>" class="btn btn-sm btn-danger me-1">Delete</a>
       </td>
     </tr>
     <%

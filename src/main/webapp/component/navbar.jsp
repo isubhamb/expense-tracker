@@ -10,11 +10,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <c:if test="${not empty loginUser}">
        <li class="nav-item">
-          <a class="nav-link active" href="add_expense.jsp"><i class="fa-solid fa-circle-user"></i> Add Expense
+          <a class="nav-link active" href="add_expense.jsp"><i class="fa-solid fa-plus"></i> Add Expense
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="view_expense.jsp"><i class="fa-solid fa-right-to-bracket"></i> View Expense</a>  
+          <a class="nav-link active" href="view_expense.jsp"><i class="fa-regular fa-eye"></i> View Expense</a>  
         </li>     
        </c:if>
        
